@@ -5,7 +5,7 @@ Faça parte da criação do sanca hackerspace em 2025!
 Precisamos da **sua ajuda** para alugar um espaço e fundar um hackerspace na cidade de São Carlos (São Paulo).
 
 Você pode ajudar, fazendo:
-- Engajando no nosso grupo de telegram ([t.me/sanca_hs](https://t.me/sanca_hs) - @sancahs)
+- Engajando no nosso grupo de telegram ([t.me/sanca_hs](https://t.me/sanca_hs))
 - Participando de nossas atividades
 - Fazendo uma doação única
 - Organizando atividades
