@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sanca Hackerspace — 2025</title>
+  <meta name="description" content="Ajude a fundar o Sanca Hackerspace em São Carlos (SP): entre no grupo, participe das atividades e faça uma doação única via Pix." />
+  <meta property="og:title" content="Sanca Hackerspace — 2025" />
+  <meta property="og:description" content="Ajude a fundar o Sanca Hackerspace em São Carlos (SP)." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0f1b16" />
+
+  <style>
+    /* ---------- Reset e base ---------- */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;
+      line-height:1.5;
+      color: #e6fff4;
+      background: radial-gradient(1200px 600px at 15% -10%, #124d38 0%, #0f1b16 35%, #0b1411 100%) no-repeat fixed;
+    }
+    :root{
+      --maxw: 1000px;
+      --accent: #2ee6a6; /* verde "hacker" */
+      --accent-weak:#1fbf88;
+      --card: #0f221c;
+      --card-b: #164231;
+      --muted: #b2d8cc;
+      --outline: 2px solid rgba(46,230,166,.4);
+      --radius: 14px;
+      --shadow: 0 6px 30px rgba(0,0,0,.4);
+    }
+    a{color: var(--accent); text-decoration: none}
+    a:hover{text-decoration: underline}
+    img{max-width:100%; height:auto; display:block}
+    .container{max-width:var(--maxw); margin:0 auto; padding: 20px}
+    .skip-link{
+      position:absolute; left:-999px; top:auto; width:1px; height:1px; overflow:hidden
+    }
+    .skip-link:focus{
+      left: 12px; top: 12px; width:auto; height:auto; padding:8px 12px; background:#000; color:#fff; border-radius:8px; z-index:1000
+    }
+
+    /* ---------- Cabeçalho / Navegação ---------- */
+    header{
+      position:sticky; top:0; backdrop-filter: blur(8px);
+      background: rgba(9,18,15,.65); border-bottom:1px solid #113227; z-index: 50
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; padding: 10px 20px
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px
+    }
+    .brand .dot{width:10px; height:10px; border-radius:50%; background: var(--accent); box-shadow:0 0 12px var(--accent)}
+    .nav a{padding:8px 10px; border-radius:10px}
+    .nav a[aria-current="page"]{background:rgba(46,230,166,.12); border:1px solid rgba(46,230,166,.25)}
+    .btn{
+      display:inline-block; padding:12px 16px; border-radius:12px; background: var(--accent);
+      color:#05261b; font-weight:700; text-decoration:none; box-shadow: var(--shadow);
+      border: 1px solid #0abf81;
+    }
+    .btn:hover{filter:brightness(1.05); text-decoration:none}
+
+    /* ---------- Páginas (sem JS: alterna por :target) ---------- */
+    .page{display:none}
+    #home.page{display:block}              /* padrão: Home visível */
+    #doacao:target{display:block}          /* se alvo for #doacao, só ela aparece */
+    #doacao:target ~ #home{display:none}
+    #home:target{display:block}            /* também permite #home na URL */
+
+    /* ---------- Hero / seções ---------- */
+    .hero{
+      padding: clamp(28px, 6vw, 72px) 0;
+      display:grid; gap:24px;
+    }
+    .hero h1{
+      font-size: clamp(28px, 5.5vw, 48px);
+      line-height:1.1; margin:0;
+      text-wrap: balance;
+    }
+    .lead{color: var(--muted); font-size: clamp(16px, 2.8vw, 19px)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .card{
+      background: linear-gradient(180deg, rgba(20,45,36,.85), rgba(12,27,22,.85));
+      border:1px solid var(--card-b); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow)
+    }
+    .grid{
+      display:grid; gap:16px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width:720px){ .grid{grid-template-columns: 1fr 1fr} }
+    h2{font-size: clamp(22px, 3.6vw, 30px); margin: 8px 0 4px}
+    h3{font-size: clamp(18px, 2.8vw, 22px); margin: 8px 0}
+    ul,ol{margin: 8px 0 0 1.2em}
+    .muted{color: var(--muted)}
+    .list-plain{margin:0; padding-left: 1em}
+    .list-plain li{margin:.4em 0}
+
+    /* ---------- Timeline simples ---------- */
+    .timeline{display:grid; gap:12px}
+    .t-item{display:grid; grid-template-columns: auto 1fr; gap:10px; align-items:start}
+    .t-year{
+      font-weight:900; color: var(--accent); min-width: 64px; text-align:right
+    }
+    .t-body{
+      padding:12px; border:1px dashed var(--card-b); border-radius:12px; background:#0e1e18
+    }
+
+    /* ---------- Página de Doação ---------- */
+    .donate-wrap{display:grid; place-items:center; padding: clamp(20px, 5vw, 40px) 0}
+    .donate{
+      width:min(720px, 96vw);
+      display:grid; gap:20px;
+      grid-template-columns: 1fr;
+      text-align:center
+    }
+    .qr-card{
+      display:grid; gap:16px; justify-items:center;
+      padding: 20px; background:#0e1f19; border:1px solid var(--card-b);
+      border-radius: 18px; box-shadow: var(--shadow)
+    }
+    .qr-card img{width:min(320px, 80vw)}
+    .pix-key{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      background: #08150f; border:1px solid #113927; padding:10px 12px; border-radius: 10px;
+      word-break: break-all
+    }
+    .note{font-size:.95rem; color: var(--muted)}
+
+    /* ---------- Rodapé ---------- */
+    footer{
+      margin-top: 40px; border-top:1px solid #123b2c; color: #98cbbb;
+      background: rgba(8,18,14,.6)
+    }
+    .foot{display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:space-between; padding: 14px 20px}
+
+    /* ---------- Acessibilidade de foco ---------- */
+    a:focus, .btn:focus { outline: var(--outline); outline-offset:2px }
+
+    /* ---------- Impressão: deixar doação limpa no papel ---------- */
+    @media print{
+      body{background:#fff; color:#000}
+      header, .hero, .grid, .timeline, footer{display:none !important}
+      #doacao, .donate, .qr-card{display:block !important; box-shadow:none; border-color:#000}
+      .pix-key{border-color:#000; background:#fff; color:#000}
+      a{color:#000; text-decoration:none}
+    }
+
+    /* ---------- Suporte a tema claro do SO ---------- */
+    @media (prefers-color-scheme: light){
+      body{ color:#0b1915; background:#f6fbf9 }
+      :root{
+        --card: #ffffff; --card-b:#dff3ea; --muted:#285a4b;
+      }
+      .card{ background:#ffffff }
+      .qr-card{ background:#ffffff }
+      .pix-key{ background:#f3f8f6; border-color:#cfeadf; color:#143a2e }
+      header{ background: rgba(255,255,255,.8); border-bottom-color:#d2ecdf }
+      footer{ background:#f1faf5; color:#244a3f; border-top-color:#cfeadf }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para conteúdo</a>
+
+  <header>
+    <nav class="nav container" aria-label="Principal">
+      <div class="brand">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Sanca Hackerspace</span>
+      </div>
+      <div>
+        <!-- Dica: defina aria-current dinamicamente se quiser duplicar em páginas separadas -->
+        <a href="#home" aria-current="page">Início</a>
+        <a class="btn" href="#doacao">Doar</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="conteudo" class="container">
+    <!-- A ordem importa para o CSS :target ~ #home esconder o home na aba doação -->
+    <section id="doacao" class="page" aria-labelledby="doacao-title">
+      <div class="donate-wrap">
+        <div class="donate">
+          <h1 id="doacao-title">Doação</h1>
+          <div class="qr-card">
+            <img
+              src="https://github.com/user-attachments/assets/d4a0f35e-4844-4519-b478-fc0969ea16ad"
+              alt="QR Code do Pix para doar ao Sanca Hackerspace" />
+            <div>
+              <div class="pix-key" aria-label="Chave Pix">
+                8048af5b-8c29-4167-86b8-39351e41a661
+              </div>
+              <p class="note" style="margin-top:8px">
+                Chave Pix em nome de <strong>Luiz</strong> — diretor financeiro do hackerspace.
+              </p>
+            </div>
+          </div>
+          <p class="muted">Obrigado por apoiar a fundação do Sanca Hackerspace! 💚</p>
+          <p><a href="#home">Voltar para o site</a></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="home" class="page" aria-labelledby="home-title">
+      <section class="hero">
+        <h1 id="home-title">Faça parte da criação do Sanca Hackerspace em 2025!</h1>
+        <p class="lead">
+          Precisamos da <strong>sua ajuda</strong> para alugar um espaço e fundar um hackerspace na
+          cidade de São Carlos (São Paulo).
+        </p>
+        <div class="cta">
+          <a class="btn" href="https://t.me/sanca_hs" target="_blank" rel="noopener">Entrar no Telegram</a>
+          <a class="btn" href="#doacao" title="Abra a aba de doação">Doar agora via Pix</a>
+        </div>
+      </section>
+
+      <section class="grid" aria-labelledby="como-ajudar">
+        <article class="card">
+          <h2 id="como-ajudar">Como você pode ajudar</h2>
+          <ul class="list-plain">
+            <li>Engajando no nosso grupo de Telegram (<a href="https://t.me/sanca_hs" target="_blank" rel="noopener">t.me/sanca_hs</a>)</li>
+            <li>Participando de nossas atividades</li>
+            <li>Fazendo uma doação única</li>
+            <li>Organizando atividades</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>Faça uma doação única</h2>
+          <p class="muted">Estamos <strong>arrecadando</strong> dinheiro para alugar um espaço e fundar o hackerspace.</p>
+          <p>Seja nosso mecenas: doe qualquer valor pelo Pix.</p>
+          <p><a class="btn" href="#doacao">Ver QR Code e chave Pix</a></p>
+        </article>
+      </section>
+
+      <section class="grid" aria-labelledby="o-que-e">
+        <article class="card">
+          <h2 id="o-que-e">O que é um hackerspace?</h2>
+          <p>
+            Um hackerspace (hackspace, hacklab, makerspace) é um laboratório-oficina comunitário
+            que segue a ética hacker e a cultura maker, com espírito agregador, convergente e inspirador.
+            <span class="muted">(definição baseada na Wikipedia)</span>
+          </p>
+          <h3>Hackerspaces que nos inspiram</h3>
+          <ul class="list-plain">
+            <li>Garoa Hacker Clube</li>
+            <li>Laboratório Hacker Campinas</li>
+            <li>Calango</li>
+            <li>Raul</li>
+            <li>E muitos outros!</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h2>O Sanca Hackerspace</h2>
+          <p>
+            Há anos tentamos fundar um hackerspace em São Carlos, a “Capital da Tecnologia”. Agora em 2025,
+            10 anos após a primeira tentativa, o espírito hacker toma conta novamente da comunidade sancarlense —
+            e queremos finalmente fundar e manter um espaço próprio.
+          </p>
+        </article>
+      </section>
+
+      <section class="card" aria-labelledby="historia">
+        <h2 id="historia">Nossa história em São Carlos</h2>
+        <div class="timeline">
+          <div class="t-item">
+            <div class="t-year">2015</div>
+            <div class="t-body">
+              Godzilla Hacker Clube: primeiras atividades em espaços abertos (até 2016).
+            </div>
+          </div>
+          <div class="t-item">
+            <div class="t-year">2018</div>
+            <div class="t-body">
+              Boom das comunidades (opensanca, grupy-sanca, sancaLUG, wonami, PyLadies…).
+              Parceria com o Wonami.net garantiu um espaço temporário, dezenas de atividades
+              e engajamento real — mas sem atingir a base financeira para espaço próprio.
+            </div>
+          </div>
+          <div class="t-item">
+            <div class="t-year">2025</div>
+            <div class="t-body">
+              A comunidade se reorganiza para viabilizar <strong>um hackerspace sustentável</strong> em São Carlos.
+              Junte-se a nós: <a href="https://t.me/sanca_hs" target="_blank" rel="noopener">t.me/sanca_hs</a>.
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot container">
+      <span>© 2025 Sanca Hackerspace — comunidade de São Carlos (SP)</span>
+      <span><a href="#doacao">Doar via Pix</a> · <a href="https://t.me/sanca_hs" target="_blank" rel="noopener">Telegram</a></span>
+    </div>
+  </footer>
+</body>
+</html>
+
