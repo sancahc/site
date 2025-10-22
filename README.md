@@ -22,6 +22,6 @@ qrcode:
 
 chave pix:
 
-8048af5b-8c29-4167-86b8-39351e41a661
+`8048af5b-8c29-4167-86b8-39351e41a661`
 
 (chave Pix no nome de Luiz - diretor financeiro do hackerspace)
