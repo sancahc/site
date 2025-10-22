@@ -25,24 +25,3 @@ chave pix:
 8048af5b-8c29-4167-86b8-39351e41a661
 
 (chave Pix no nome de Luiz - diretor financeiro do hackerspace)
-
-## O que é hackerspace?
-
-Um hackerspace ou hackspace, também conhecido como hacklab, makerspace ou creative space é um local real com o formato de um laboratório-oficina comunitário que segue a ética hacker e cultura maker, tendo espírito agregador, convergente e inspirador. (retirado da Wikipedia)
-
-Nos inspiramos nos hackerspaces brasileiros:
-- Garoa Hacker Clube
-- Laboratório Hacker Campinas
-- Calango
-- Raul
-- E muitos outros!
-
-## O sanca hackerspace
-
-Há anos tentamos fundar um hackerspace na cidade de São Carlos, que obteve o título de "Capital da Tecnologia".
-
-A primeira tentativa ocorreu em 2015, com o Godzilla Hacker Clube, que organizou atividades em diversos espaços aberto até 2016.
-
-A segunda foi em 2018 - em que houve um boom das comunidades de tecnologia de São Carlos (opensanca, grupy-sanca, sancaLUG, wonami, pyladies e outras). Nessa época chegamos a fazer uma parceria com o Wonami.net e ter um espaço físico, fizemos dezenas de atividades e conseguimos engajar alguns membros para fundação. Porém não atingimos a quantidade de dinheiro e pessoas necessária para ter o próprio espaço e manter as atividades do hackerspace.
-
-Agora em 2025, 10 anos após a primeira tentativa, o espírito hacker toma conta de novo da comunidade sancarlense e nos organizamos para finalmente fundar e manter um hackerspace em São Carlos.
