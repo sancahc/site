@@ -1,6 +1,6 @@
 <img width="548" height="334" alt="image" src="https://github.com/user-attachments/assets/27a24b6f-71f3-4760-9b42-6ddb4c79fdb6" />
 
-Faça parte da criação do sanca hackerspace em 2025!
+Faça parte da criação do sanca hackerspace em 2026!
 
 Precisamos da **sua ajuda** para alugar um espaço e fundar um hackerspace na cidade de São Carlos (São Paulo).
 
@@ -21,6 +21,10 @@ qrcode:
 ![Chave Pix Sanca hackerspace](https://github.com/user-attachments/assets/d4a0f35e-4844-4519-b478-fc0969ea16ad)
 
 chave pix:
+
+`pix@sanca.log.br`
+
+ou
 
 `8048af5b-8c29-4167-86b8-39351e41a661`
 
